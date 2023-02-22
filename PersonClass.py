@@ -6,8 +6,17 @@ class Person:
         self.address = address
         self.phone = phone
 
-    def print_person(self, name, address, phone):
-        print(f'{name}, {address}, {phone}')
+    def get_name(self):
+        return self.name
+
+    def get_address(self):
+        return self.address
+
+    def get_phone(self):
+        return self.phone
+
+    def print_person(self):
+        print(f'{self.name}, {self.address}, {self.phone}')
 
 
 class Customer(Person):
@@ -19,5 +28,13 @@ class Customer(Person):
         self.cust_num = cust_num
         self.mailing_list = mailing_list
 
-        def print_customer(self):
-            return self.person
+    def print_customer(self):
+
+        Person.print_person(self)
+
+        print(f'Customer Number: {self.cust_num}')
+
+        if self.mailing_list() == True:
+            print('On mailing list: Yes')
+        else:
+            print('Not on mailing list.')
